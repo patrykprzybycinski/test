@@ -211,7 +211,7 @@ zatrzymywania symulacji oraz reakcję operatora na zwiększoną dostępność za
 Test potwierdza:
 - poprawną obsługę sygnału rozbudowy platform przez operatora,
 - dynamiczne zwiększenie maksymalnej liczby dronów w systemie,
-- możliwość dalszego uzupełniania roju w trakcie działania symulacji,
+- możliwość dalszego uzupełniania roju w trakcie działania symulacji.
 
 ![Test 4](test4.png)
 
@@ -251,6 +251,23 @@ Test potwierdza:
 
 ![Test 6](test6.png)
 
+### Test 7 – Powrót dronów do bazy i przejście przez jedno z dwóch istniejących wejść
+
+Test polegał na jednoczesnym powrocie wielu dronów do bazy w momencie obniżenia poziomu
+naładowania baterii. W trakcie testu obserwowano sposób przydzielania dronom dostępu
+do dwóch wąskich wejść prowadzących do bazy.
+
+Zweryfikowano poprawne działanie mechanizmu synchronizacji, który zapewniał, że w danej
+chwili jedno wejście może być wykorzystywane tylko przez jednego drona. Drony, które nie
+uzyskały dostępu do wejścia, przechodziły w stan oczekiwania lub krążyły w pobliżu bazy
+do momentu zwolnienia wejścia.
+
+Test potwierdza:
+- poprawną synchronizację dostępu do wejść bazy,
+- brak kolizji podczas jednoczesnych powrotów wielu dronów,
+- równomierne wykorzystanie obu dostępnych wejść.
+
+![Test 7](test7.png)
 
 
 
