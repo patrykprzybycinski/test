@@ -155,6 +155,25 @@ Test potwierdza:
 - poprawną walidację danych wejściowych,
 - prawidłową inicjalizację pamięci dzielonej i semaforów,
 - poprawne utworzenie procesów operatora i dronów,
-- czytelne, kolorowe logowanie komunikatów w terminalu.
 
 ![Test 1](test1.png)
+
+### Test 2 – Wysłanie sygnału 3 (atak samobójczy losowego drona)
+
+Test polegał na wysłaniu sygnału ataku samobójczego do systemu w trakcie trwania symulacji.
+Dowódca wysyłał sygnał sterujący, który był przekazywany przez operatora do losowo wybranego
+drona.
+
+W trakcie testu zweryfikowano poprawność reakcji drona na sygnał w zależności od jego
+aktualnego stanu oraz poziomu naładowania baterii. Dron z poziomem baterii powyżej 20%
+realizował atak i kończył działanie, natomiast dron z poziomem baterii poniżej 20%
+ignorował sygnał zgodnie z założeniami projektu.
+
+Test potwierdza:
+- poprawne przekazywanie sygnałów pomiędzy procesami,
+- losowy wybór drona do wykonania ataku,
+- zgodną z założeniami reakcję drona na sygnał ataku,
+- poprawną aktualizację stanu systemu po zakończeniu procesu drona.
+
+
+
