@@ -135,11 +135,10 @@ następujące testy funkcjonalne i scenariusze użytkowe:
 2. Test wysłania sygnału 3 – atak samobójczy losowego drona  
 3. Test wysłania sygnału 2 – redukcja platform startowych w trakcie działania systemu  
 4. Test wysłania sygnału 1 – rozbudowa platform startowych w trakcie działania systemu  
-5. Test zakończenia programu  
-6. Obserwacja logów dronów podczas lotu oraz zmiany ich stanów  
-7. Test utylizacji dronów po osiągnięciu określonej liczby ładowań (Xi)  
-8. Test powrotu dronów do bazy i przejścia przez jedno z dwóch istniejących wejść  
-9. Test pojemności bazy – weryfikacja, że baza nie przyjmuje więcej niż P < N/2 dronów jednocześnie
+5. Test zakończenia programu    
+6. Test utylizacji dronów po osiągnięciu określonej liczby ładowań (Xi)  
+7. Test powrotu dronów do bazy i przejścia przez jedno z dwóch istniejących wejść  
+8. Test pojemności bazy – weryfikacja, że baza nie przyjmuje więcej niż P < N/2 dronów jednocześnie
 
 ### Test 1 – Konfiguracja roju dronów i uruchomienie systemu
 
@@ -233,6 +232,25 @@ Test potwierdza:
 - bezpieczne zamknięcie symulacji bez wycieków zasobów.
 
 ![Test 5](tes5.png)
+
+### Test 6 – Utylizacja dronów po osiągnięciu określonej liczby ładowań (Xi)
+
+Test polegał na obserwacji cyklu życia pojedynczych dronów w trakcie działania symulacji,
+ze szczególnym uwzględnieniem liczby pobytów drona w bazie. Każdy dron zliczał liczbę
+zakończonych ładowań, a po osiągnięciu wartości granicznej Xi kończył swoje działanie.
+
+W trakcie testu zweryfikowano poprawne przechodzenie dronów przez kolejne cykle:
+lot → powrót → ładowanie → ponowny start, aż do momentu utylizacji. Po osiągnięciu limitu
+Xi dron był wycofywany z eksploatacji, a jego proces kończył działanie w sposób kontrolowany.
+
+Test potwierdza:
+- poprawne zliczanie liczby ładowań przez drona,
+- automatyczną utylizację drona po osiągnięciu limitu Xi,
+- aktualizację liczników aktywnych dronów w pamięci dzielonej,
+- stabilność systemu przy stopniowym wycofywaniu dronów z eksploatacji.
+
+![Test 6](test6.png)
+
 
 
 
