@@ -232,7 +232,7 @@ Test potwierdza:
 - poprawne usunięcie struktur IPC,
 - bezpieczne zamknięcie symulacji bez wycieków zasobów.
 
-![Test 5](test5.png)
+![Test 5](tes5.png)
 
 
 
