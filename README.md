@@ -135,7 +135,7 @@ następujące testy funkcjonalne i scenariusze użytkowe:
 2. Test wysłania sygnału 3 – atak samobójczy losowego drona  
 3. Test wysłania sygnału 2 – redukcja platform startowych w trakcie działania systemu  
 4. Test wysłania sygnału 1 – rozbudowa platform startowych w trakcie działania systemu  
-5. Test zakończenia programu oraz poprawnego sprzątania zasobów (pamięć dzielona, kolejki komunikatów, semafory)  
+5. Test zakończenia programu  
 6. Obserwacja logów dronów podczas lotu oraz zmiany ich stanów  
 7. Test utylizacji dronów po osiągnięciu określonej liczby ładowań (Xi)  
 8. Test powrotu dronów do bazy i przejścia przez jedno z dwóch istniejących wejść  
@@ -215,6 +215,24 @@ Test potwierdza:
 - możliwość dalszego uzupełniania roju w trakcie działania symulacji,
 
 ![Test 4](test4.png)
+
+### Test 5 – Zakończenie programu i sprzątanie zasobów systemowych
+
+Test polegał na zakończeniu działania symulacji poprzez wysłanie sygnału zakończenia z poziomu
+procesu dowódcy. Po odebraniu sygnału operator inicjował procedurę kontrolowanego zamykania
+systemu.
+
+W ramach testu zweryfikowano poprawne zakończenie wszystkich aktywnych procesów dronów
+oraz zwolnienie wykorzystywanych zasobów systemowych, takich jak pamięć dzielona,
+semafory oraz kolejki komunikatów.
+
+Test potwierdza:
+- uporządkowane zakończenie działania wszystkich procesów,
+- brak pozostawionych procesów zombie,
+- poprawne usunięcie struktur IPC,
+- bezpieczne zamknięcie symulacji bez wycieków zasobów.
+
+![Test 5](test5.png)
 
 
 
