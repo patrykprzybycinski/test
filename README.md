@@ -50,16 +50,13 @@ Projekt został podzielony na **kilka logicznie rozdzielonych plików źródłow
 ## Zastosowane rozwiązania zwiększające wydajność i stabilność
 
 - **Asynchroniczna komunikacja za pomocą sygnałów**  
-  Sygnały systemowe pozwalają na natychmiastową reakcję procesów bez konieczności ciągłego odpytywania stanu (busy waiting).
+  Sygnały systemowe pozwalają na natychmiastową reakcję procesów bez konieczności ciągłego odpytywania stanu.
 
 - **Minimalizacja sekcji krytycznych**  
   Dostęp do pamięci współdzielonej jest chroniony semaforami tylko w niezbędnych fragmentach kodu, co ogranicza czas blokowania i poprawia równoległość działania procesów.
 
 - **Dynamiczne zarządzanie zasobami**  
   Lista aktywnych dronów jest alokowana dynamicznie i rozszerzana w razie potrzeby, co pozwala na efektywne wykorzystanie pamięci.
-
-- **Oddzielenie logiki od mechanizmów IPC**  
-  Wyodrębnienie obsługi semaforów, pamięci i kolejek do osobnych plików zwiększa czytelność kodu oraz ułatwia dalszą rozbudowę systemu.
 
 - **Obsługa sygnałów SIGCHLD**  
   Zapewnia bieżące usuwanie zakończonych procesów dronów, zapobiegając powstawaniu procesów zombie.
