@@ -1,6 +1,6 @@
-## Rój dronów
+### Rój dronów
 
-### 1. Ogólny opis projektu.
+## 1. Ogólny opis projektu
 
 Projekt polega na symulacji cyklu życia **roju autonomicznych dronów**, działających w oparciu o mechanizmy systemów operacyjnych w środowisku Linux/UNIX. System składa się z trzech głównych typów procesów: **dowódcy**, **operatora** oraz **dronów**, które współpracują ze sobą i komunikują się przy użyciu procesów, wątków, sygnałów oraz mechanizmów IPC.
 
@@ -14,11 +14,11 @@ Cała symulacja generuje **raport tekstowy**, zapisywany do plików, dokumentuj�
 
 Projekt ma na celu praktyczne wykorzystanie i zaprezentowanie **kluczowych funkcji systemowych** związanych z zarządzaniem procesami, wątkami, synchronizacją, komunikacją międzyprocesową, obsługą sygnałów oraz operacjami na plikach.
 
-# 2. Ogólny opis kodu
+## 2. Ogólny opis kodu
 
 Projekt został podzielony na **kilka logicznie rozdzielonych plików źródłowych**, z których każdy odpowiada za odrębny element symulowanego systemu. Taki podział ułatwia rozwój projektu, zwiększa czytelność kodu oraz pozwala na łatwiejsze testowanie i debugowanie poszczególnych komponentów.
 
-## Struktura projektu
+## 2.1. Struktura projektu
 
 - **`dowodca.c`**  
   Główny proces sterujący symulacją. Odpowiada za inicjalizację parametrów systemu (liczba dronów, pojemność bazy, czasy), tworzenie procesu operatora oraz obsługę interfejsu decyzyjnego dowódcy. Realizuje wysyłanie sygnałów sterujących do operatora oraz nadzoruje poprawne zakończenie systemu.
@@ -47,7 +47,7 @@ Projekt został podzielony na **kilka logicznie rozdzielonych plików źródłow
 - **`shared.h`**  
   Wspólny plik nagłówkowy zawierający deklaracje struktur, zmiennych globalnych oraz prototypy funkcji używanych w całym projekcie.
 
-## Zastosowane rozwiązania zwiększające wydajność i stabilność
+## 2.2. Zastosowane rozwiązania zwiększające wydajność i stabilność
 
 - **Asynchroniczna komunikacja za pomocą sygnałów**  
   Sygnały systemowe pozwalają na natychmiastową reakcję procesów bez konieczności ciągłego odpytywania stanu.
@@ -62,7 +62,7 @@ Projekt został podzielony na **kilka logicznie rozdzielonych plików źródłow
   Zapewnia bieżące usuwanie zakończonych procesów dronów, zapobiegając powstawaniu procesów zombie.
 
 ---
-## Zrealizowane funkcjonalności
+## 3. Zrealizowane funkcjonalności
 
 W ramach projektu udało się zaimplementować pełną symulację cyklu życia roju autonomicznych dronów,
 zgodnie z założeniami projektowymi. Zrealizowane zostały następujące elementy:
@@ -80,7 +80,7 @@ zgodnie z założeniami projektowymi. Zrealizowane zostały następujące elemen
 
 ---
 
-## Napotkane problemy i trudności
+## 4. Napotkane problemy i trudności
 
 Podczas realizacji projektu napotkano kilka istotnych problemów technicznych, głównie związanych
 z równoległością oraz komunikacją międzyprocesową:
@@ -103,6 +103,7 @@ z równoległością oraz komunikacją międzyprocesową:
 
 - **Testowanie scenariuszy brzegowych**  
   Równoczesne zakończenie wielu dronów, redukcja platform do zera lub atak na drona w trakcie ładowania
-  ujawniały błędy logiczne, które wymagały dodatkowych zabezpieczeń i sprawdzeń warunków.
-
-
+  ujawniały błędy logiczne, które wymagały dodatkowych zabezpieczeń i sprawdzeń warunków.  
+  Problemy te zostały rozwiązane poprzez dodanie jawnych kontroli stanu systemu, zabezpieczenie
+  operacji na licznikach semaforami oraz wprowadzenie dodatkowych warunków kończących symulację
+  w sposób uporządkowany (zamykanie systemu przez operatora po wyczerpaniu dostępnych zasobów).
