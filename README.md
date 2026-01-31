@@ -62,4 +62,47 @@ Projekt został podzielony na **kilka logicznie rozdzielonych plików źródłow
   Zapewnia bieżące usuwanie zakończonych procesów dronów, zapobiegając powstawaniu procesów zombie.
 
 ---
+## Zrealizowane funkcjonalności
+
+W ramach projektu udało się zaimplementować pełną symulację cyklu życia roju autonomicznych dronów,
+zgodnie z założeniami projektowymi. Zrealizowane zostały następujące elementy:
+
+- utworzenie trzech współpracujących typów procesów: dowódcy, operatora oraz dronów,
+- dynamiczne tworzenie i usuwanie dronów z wykorzystaniem procesów potomnych,
+- komunikacja międzyprocesowa przy użyciu sygnałów systemowych,
+- synchronizacja dostępu do zasobów współdzielonych za pomocą semaforów System V,
+- współdzielenie globalnego stanu systemu przy użyciu pamięci dzielonej,
+- kontrola dostępu do dwóch wąskich wejść bazy przy użyciu kolejek komunikatów,
+- realistyczna symulacja poziomu baterii, czasu lotu, powrotu oraz ładowania dronów,
+- obsługa sytuacji awaryjnych (zniszczenie drona w locie, atak samobójczy, brak miejsc w bazie),
+- poprawne i uporządkowane zakończenie systemu wraz ze zwolnieniem zasobów IPC,
+- generowanie szczegółowego raportu z przebiegu symulacji w plikach tekstowych.
+
+---
+
+## Napotkane problemy i trudności
+
+Podczas realizacji projektu napotkano kilka istotnych problemów technicznych, głównie związanych
+z równoległością oraz komunikacją międzyprocesową:
+
+- **Synchronizacja dostępu do pamięci współdzielonej**  
+  W początkowej wersji projektu występowały warunki wyścigu podczas jednoczesnej modyfikacji liczników
+  dronów. Problem został rozwiązany poprzez zawężenie sekcji krytycznych i konsekwentne użycie semaforów.
+
+- **Obsługa sygnałów i procesów zombie**  
+  Występowały sytuacje, w których zakończone procesy dronów nie były poprawnie usuwane.
+  Zastosowanie obsługi sygnału `SIGCHLD` oraz `waitpid()` rozwiązało ten problem.
+
+- **Asynchroniczność sygnałów**  
+  Sygnały mogły być dostarczane w dowolnym momencie wykonywania kodu, co wymagało zastosowania
+  zmiennych typu `volatile sig_atomic_t` oraz dodatkowych sprawdzeń stanu drona.
+
+- **Koordynacja dostępu do wejść bazy**  
+  Trudność stanowiło zapewnienie jednokierunkowego ruchu w dwóch wąskich wejściach bazy.
+  Problem rozwiązano poprzez wykorzystanie kolejek komunikatów jako mechanizmu przydziału wejść.
+
+- **Testowanie scenariuszy brzegowych**  
+  Równoczesne zakończenie wielu dronów, redukcja platform do zera lub atak na drona w trakcie ładowania
+  ujawniały błędy logiczne, które wymagały dodatkowych zabezpieczeń i sprawdzeń warunków.
+
 
