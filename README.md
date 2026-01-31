@@ -182,3 +182,23 @@ Dla drona z poziomem baterii > 20%:
 Dla drona z poziomem baterii < 20%:
 
 ![Test 2](test2.2.png)
+
+### Test 3 – Wysłanie sygnału 2 (redukcja platform startowych)
+
+Test polegał na wysłaniu sygnału redukcji platform startowych w trakcie działania systemu.
+Po odebraniu sygnału operator zmniejszał maksymalną liczbę dostępnych platform startowych,
+co skutkowało ograniczeniem dopuszczalnej liczby aktywnych dronów w systemie.
+
+W ramach testu zweryfikowano zachowanie systemu przy dynamicznym zmniejszaniu dostępnych
+zasobów, w tym poprawne wysyłanie sygnałów zakończenia do nadmiarowych dronów oraz
+aktualizację wartości przechowywanych w pamięci dzielonej.
+
+Test potwierdza:
+- poprawną obsługę sygnału redukcji platform przez operatora,
+- dynamiczne dostosowanie liczby aktywnych dronów do nowego limitu,
+- bezpieczne usuwanie procesów dronów w trakcie działania symulacji,
+
+![Test 3](test3.png)
+
+
+
