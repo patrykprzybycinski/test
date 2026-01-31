@@ -141,4 +141,20 @@ następujące testy funkcjonalne i scenariusze użytkowe:
 8. Test powrotu dronów do bazy i przejścia przez jedno z dwóch istniejących wejść  
 9. Test pojemności bazy – weryfikacja, że baza nie przyjmuje więcej niż P < N/2 dronów jednocześnie
 
+### Test 1 – Konfiguracja roju dronów i uruchomienie systemu
+
+Test polegał na uruchomieniu programu dowódcy oraz skonfigurowaniu początkowych parametrów
+symulacji: liczby dronów (N), pojemności bazy (P), czasu uzupełniania roju (Tk) oraz maksymalnej
+liczby ładowań pojedynczego drona (Xi).
+
+Po poprawnym wprowadzeniu danych system został uruchomiony, a proces operatora rozpoczął
+tworzenie dronów zgodnie z zadanymi parametrami. Każdy dron wystartował jako osobny proces,
+inicjalizując losowe czasy lotu i ładowania oraz rozpoczynając swój cykl życia.
+
+Test potwierdza:
+- poprawną walidację danych wejściowych,
+- prawidłową inicjalizację pamięci dzielonej i semaforów,
+- poprawne utworzenie procesów operatora i dronów,
+- czytelne, kolorowe logowanie komunikatów w terminalu.
+
 ![Test 1](test1.png)
