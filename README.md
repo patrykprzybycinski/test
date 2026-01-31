@@ -200,5 +200,21 @@ Test potwierdza:
 
 ![Test 3](test3.png)
 
+### Test 4 – Wysłanie sygnału 1 (rozbudowa platform startowych)
+
+Test polegał na wysłaniu sygnału rozbudowy platform startowych w trakcie trwania symulacji.
+Po odebraniu sygnału operator zwiększał maksymalną liczbę dostępnych platform, co umożliwiało
+dalsze tworzenie i uruchamianie nowych dronów.
+
+W trakcie testu zweryfikowano poprawność dynamicznej zmiany limitów systemowych bez
+zatrzymywania symulacji oraz reakcję operatora na zwiększoną dostępność zasobów.
+
+Test potwierdza:
+- poprawną obsługę sygnału rozbudowy platform przez operatora,
+- dynamiczne zwiększenie maksymalnej liczby dronów w systemie,
+- możliwość dalszego uzupełniania roju w trakcie działania symulacji,
+
+![Test 4](test4.png)
+
 
 
