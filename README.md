@@ -124,3 +124,20 @@ z równoległością oraz komunikacją międzyprocesową:
   Losowe czasy lotu, ładowania oraz zużycia baterii powodują, że każda symulacja przebiega
   inaczej. Utrudnia to testowanie, ale lepiej odwzorowuje zachowanie rzeczywistych systemów
   autonomicznych.
+  
+## 6. Przeprowadzone testy
+
+W celu weryfikacji poprawności działania systemu, spełnienia założeń projektowych
+oraz sprawdzenia zachowania symulacji w różnych scenariuszach, przeprowadzono
+następujące testy funkcjonalne i scenariusze użytkowe:
+
+1. Skonfigurowanie roju dronów (parametry N, P, Tk, Xi) oraz poprawne uruchomienie programu  
+2. Test wysłania sygnału 3 – atak samobójczy losowego drona  
+3. Test wysłania sygnału 2 – redukcja platform startowych w trakcie działania systemu  
+4. Test wysłania sygnału 1 – rozbudowa platform startowych w trakcie działania systemu  
+5. Test zakończenia programu oraz poprawnego sprzątania zasobów (pamięć dzielona, kolejki komunikatów, semafory)  
+6. Obserwacja logów dronów podczas lotu oraz zmiany ich stanów  
+7. Test utylizacji dronów po osiągnięciu określonej liczby ładowań (Xi)  
+8. Test powrotu dronów do bazy i przejścia przez jedno z dwóch istniejących wejść  
+9. Test pojemności bazy – weryfikacja, że baza nie przyjmuje więcej niż P < N/2 dronów jednocześnie
+
