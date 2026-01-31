@@ -107,3 +107,20 @@ z równoległością oraz komunikacją międzyprocesową:
   Problemy te zostały rozwiązane poprzez dodanie jawnych kontroli stanu systemu, zabezpieczenie
   operacji na licznikach semaforami oraz wprowadzenie dodatkowych warunków kończących symulację
   w sposób uporządkowany (zamykanie systemu przez operatora po wyczerpaniu dostępnych zasobów).
+
+## 5. Wyróżniające się elementy specjalne
+
+- **Obsługa wielu scenariuszy awaryjnych**  
+  Projekt uwzględnia rzadkie i trudne przypadki, takie jak atak na drona w trakcie ładowania,
+  rozładowanie baterii podczas oczekiwania na wejście do bazy czy redukcja liczby platform
+  w trakcie aktywnej pracy systemu.
+
+- **Rozbudowane logowanie zdarzeń**  
+  Log zawiera szczegółowe informacje o stanie każdego drona (lot, powrót, ładowanie,
+  zniszczenie, utylizacja), co umożliwia późniejszą analizę przebiegu symulacji oraz
+  diagnozowanie problemów współbieżności.
+
+- **Dynamiczny i niedeterministyczny charakter symulacji**  
+  Losowe czasy lotu, ładowania oraz zużycia baterii powodują, że każda symulacja przebiega
+  inaczej. Utrudnia to testowanie, ale lepiej odwzorowuje zachowanie rzeczywistych systemów
+  autonomicznych.
