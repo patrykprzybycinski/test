@@ -141,4 +141,4 @@ następujące testy funkcjonalne i scenariusze użytkowe:
 8. Test powrotu dronów do bazy i przejścia przez jedno z dwóch istniejących wejść  
 9. Test pojemności bazy – weryfikacja, że baza nie przyjmuje więcej niż P < N/2 dronów jednocześnie
 
-![Opis screena](screenshots/test1.png)
+![Test 1](test1.png)
