@@ -138,7 +138,6 @@ następujące testy funkcjonalne i scenariusze użytkowe:
 5. Test zakończenia programu    
 6. Test utylizacji dronów po osiągnięciu określonej liczby ładowań (Xi)  
 7. Test powrotu dronów do bazy i przejścia przez jedno z dwóch istniejących wejść  
-8. Test pojemności bazy – weryfikacja, że baza nie przyjmuje więcej niż P < N/2 dronów jednocześnie
 
 ### Test 1 – Konfiguracja roju dronów i uruchomienie systemu
 
