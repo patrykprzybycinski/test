@@ -176,6 +176,9 @@ Test potwierdza:
 - poprawną aktualizację stanu systemu po zakończeniu procesu drona.
 
 Dla drona z poziomem baterii > 20%:
+
 ![Test 2](test2.1.png)
+
 Dla drona z poziomem baterii < 20%:
+
 ![Test 2](test2.2.png)
